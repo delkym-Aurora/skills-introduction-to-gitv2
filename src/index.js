@@ -311,9 +311,16 @@ function clearPattern(startRow, startCol) {
   }
 }
 
-// Update score display
+//Update High Score if Currect score exceed it
 function updateScore() {
   document.getElementById("score").textContent = score;
+
+  // Update high score if current score exceeds it
+  if (score > highScore) {
+    highScore = score;
+    document.getElementById("high-score").textContent = highScore;
+    localStorage.setItem("stackOverflownHighScore", highScore);
+  }
 }
 
 // Handle keyboard input
